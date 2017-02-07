@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<TITLE> 百度AR JSON调试工具(For Android)</TITLE>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="css/demo.css" type="text/css">
+		<link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css" type="text/css">
+		<link rel="stylesheet" href="css/param_editor.css" type="text/css">
+		<link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css" type="text/css">
+		<script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+		<script type="text/javascript" src="js/jquery.ztree.core.js"></script>
+		<script type="text/javascript" src="js/baiduar-library.js"></script>
+		<script type="text/javascript" src="js/filereader.js"></script>
+		<script type="text/javascript" src="js/FileSaver.min.js"></script>
+		<script type="text/javascript" src="js/tree.js"></script>
+
+  <link href="dist/jsoneditor.css" rel="stylesheet" type="text/css">
+  <script src="dist/jsoneditor.js"></script>
+  <script src="dist/clipboard.min.js"></script>
+
+  <style type="text/css">
+    body {
+      font: 10.5pt arial;
+      color: #4d4d4d;
+      line-height: 150%;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    code {
+      background-color: #f5f5f5;
+    }
+    #jsoneditor {
+      width: 100%;
+      height: 400px;  
+	
+    }
+	
+
+  </style>
+</head>
+
+
+
+
+
+<BODY>
+	<h1>百度AR JSON调试工具(For Android)</h1>
+	<div class="left_tree">
+	<div class="content_wrap">
+		<div class="zTreeDemoBackground left">
+			<ul id="treeDemo" class="ztree"></ul>
+		</div>
+
+	</div>	
+	
+	
+	</div>
+	
+		
+	
+
+	
+<div class="textt">
+	<div class="param_editor_wrapper">
+		<div class='param_editor' id='param_editor' "></div>
+		<div class="param_editor_menu">
+			<!-- <button class="menu_btn" id="btn_tojson" onclick="pressToJsonBtn()">全部生成</button>
+			
+			<button class="btn" data-clipboard-text="" onclick="setCopyValue()">点击复制</button>
+			<button class="menu_btn"
+			onclick="AddIDToTextarea(),insertAtCursor(document.getElementById('test'),toJson())">部分插入</button>			
+			<button class="menu_btn" id="btn_clearall" onclick="clearAllItem()">全部清除</button> -->
+			<!-- <button class="menu_btn" id="loadDocumentBtn	">导入文件</button> -->
+			<!-- <input type="file" id="loadDocument" value="导入文件"/> -->
+			<a href="javascript:;" class="file">
+				<input type="button" name="" id="btn_tojson" onclick="pressToJsonBtn()">全部生成
+			</a>
+			<a href="javascript:;" class="file">
+				<input type="button" name="" onclick="AddIDToTextarea(),insertAtCursor(document.getElementById('test'),toJson())">部分插入
+			</a>
+			<a href="javascript:;" class="file">
+				<input type="button" name="" id="btn_clearall" onclick="clearAllItem()">全部清除
+			</a>
+			<a href="javascript:;" class="file">
+				<input type="file" name="" id="loadDocument">导入文件
+			</a>
+			<a href="javascript:;" class="file">
+				<input type="button" name="" id="saveDocument">导出文件
+			</a>
+			<!-- <button class="menu_btn" id="">导出文件</button> -->
+		</div>
+	</div>
+  <div id="jsoneditor"></div>
+
+</div>
+</BODY>
+<script>
+  var container, options, json, editor;
+
+  container = document.getElementById('jsoneditor');
+
+  options = {
+    mode: 'text',
+    modes: ['text', 'tree'], // allowed modes
+    onError: function (err) {
+      alert(err.toString());
+    },
+    onChange: function () {
+      console.log('change');
+    },
+    indentation: 4
+  };
+
+  
+  /*json = {
+    "array": [1, 2, [3,4,5]],
+    "boolean": true,
+    "htmlcode": '&quot;',
+    "escaped_unicode": '\\u20b9',
+    "unicode": '\u20b9,\uD83D\uDCA9',
+    "return": '\n',
+    "null": null,
+    "number": 123,
+    "object": {"a": "b", "c": "d"},
+    "string": "Hello World",
+    "url": "http://jsoneditoronline.org"
+  };*/
+
+  var testJson1 = '{}';  
+  json = $.parseJSON(testJson1);
+ 	editor = new JSONEditor(container, options);
+
+
+
+  	
+  
+  var setting = {
+			data: {
+				key: {
+					title:"t"
+				},
+				simpleData: {
+					enable: true
+				}
+			},
+			callback: {
+				
+			}
+		};
+
+		
+
+	// Save a JSON document
+  	FileReaderJS.setupInput(document.getElementById('loadDocument'), {
+    readAsDefault: 'Text',
+    on: {
+      load: function (event, file) {
+        editor.setText(event.target.result);
+      }
+    }
+  });
+
+  
+
+  // Save a JSON document
+  document.getElementById('saveDocument').onclick = function () {
+    // Save Dialog
+    fname = window.prompt("Save as...");
+    
+    // Check json extension in file name
+    if(fname.indexOf(".")==-1){
+      fname = fname + ".json";
+    }else{
+      if(fname.split('.').pop().toLowerCase() == "json"){
+        // Nothing to do
+      }else{
+        fname = fname.split('.')[0] + ".json";
+      }
+    } 
+    var blob = new Blob([editor.getText()], {type: 'application/json;charset=utf-8'});
+    saveAs(blob, fname);
+  };
+
+		$(document).ready(function(){
+			$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+		});
+
+		$("#submit").click(function(){
+			alert($("#item1").name());
+		});
+
+		$(document).ready(function(){
+			$("#submit").click(function(){
+				alert($("#item1").name());
+			});
+		});
+
+		
+</script>
+
+</html>

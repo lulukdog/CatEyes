@@ -1,0 +1,386 @@
+{
+    "target": {
+        "model": "res/target/model",
+        "hint": "对准圣诞树正面",
+        "originImage": {
+            "sizeWidth": "1024",
+            "sizeHeight": "1024"
+        },
+        "featureImage": {
+            "resource": "res/target/image_target.png",
+            "position": "512,512,0",
+            "targetWidth": "443",
+            "targetHeight": "458"
+        },
+        "debug": "0"
+    },
+    "sceneList": [
+        {
+            "allowCameraControl": "0",
+            "showImmediately": "0",
+            "distanceFar": "1400",
+            "distanceNear": "750",
+            "objList": [
+                {
+                    "id": "bg",
+                    "type": "dynamic",
+                    "position": "510,513,0",
+                    "scale": "1.42,1.44,1.45",
+                    "rotation": "0,180,180",
+                    "visiable": "1",
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res\/models\/bg\/test.scn"
+                    },
+                    "texture": {
+                        "type": "image",
+                        "imageList": []
+                    },
+                    "instructions": {
+                        "start": []
+                    }
+                },
+                {
+                    "id": "gift",
+                    "type": "dynamic",
+                    "position": "530,450,-550",
+                    "scale": "0.0001,0.0001,0.0001",
+                    "rotation": "0,180,180",
+                    "visiable": "1",
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res\/models\/hand\/lihe.DAE"
+                    },
+                    "texture": {
+                        "type": "image",
+                        "imageList": []
+                    },
+                    "instructions": {
+                        "start": [],
+                        "click": [
+                            {
+                                "target": "scene",
+                                "action": "url",
+                                "persist": "0",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "notBeCancelled",
+                                "param": {
+                                    "url": "http:\/\/campaign.lancome.com.cn\/smartstore?x=0"
+                                }
+                            },
+                            {
+                                "target": "gift",
+                                "action": "geometric",
+                                "persist": "0",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "beCancelled",
+                                "param": {
+                                    "type": "scale",
+                                    "duration": "0",
+                                    "speed": "100.0",
+                                    "repeatCount": "1",
+                                    "repeatMode": "none",
+                                    "timingMode": "none",
+                                    "scaleType": "to",
+                                    "scaleScalar": "0.0001",
+                                    "delay": 0
+                                }
+                            },
+                            {
+                                "target": "shadow",
+                                "action": "geometric",
+                                "persist": "1",
+                                "forwardLogic": "wait",
+                                "backwardLogic": "beCancelled",
+                                "param": {
+                                    "type": "translate",
+                                    "duration": "0",
+                                    "speed": "1.0",
+                                    "delay": "0",
+                                    "repeatCount": "1",
+                                    "repeatMode": "none",
+                                    "timingMode": "none",
+                                    "translateType": "by",
+                                    "translateScalar": "100000,0,0"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "bubble",
+                    "type": "plane",
+                    "position": "800,20,0",
+                    "scale": "1,1,1",
+                    "rotation": "0,180,180",
+                    "sizeX": "261",
+                    "sizeY": "185",
+                    "visiable": "1",
+                    "texture": {
+                        "type": "image",
+                        "imageList": [
+                            "\/res\/models\/images\/bubble.png"
+                        ]
+                    },
+                    "instructions": {
+                        "start": [
+                            {
+                                "target": "bubble",
+                                "action": "geometric",
+                                "persist": "1",
+                                "forwardLogic": "wait",
+                                "backwardLogic": "beCancelled",
+                                "param": {
+                                    "type": "translate",
+                                    "duration": "0",
+                                    "speed": "1.0",
+                                    "delay": "5",
+                                    "repeatCount": "1",
+                                    "repeatMode": "none",
+                                    "timingMode": "none",
+                                    "translateType": "by",
+                                    "translateScalar": "100000,0,0"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "shadow",
+                    "type": "plane",
+                    "position": "0,0,-540",
+                    "scale": "0.0001,0.0001,0.0001",
+                    "rotation": "0,180,180",
+                    "sizeX": "1334",
+                    "sizeY": "1334",
+                    "visiable": "1",
+                    "texture": {
+                        "type": "image",
+                        "imageList": [
+                            "\/res\/models\/images\/shadow.png"
+                        ]
+                    }
+                },
+                {
+                    "id": "lu-1",
+                    "type": "dynamic",
+                    "position": "550,260,0",
+                    "scale": "0.0001,0.0001,0.0001",
+                    "rotation": "0,180,180",
+                    "visiable": "1",
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res\/models\/deer\/luxia.DAE"
+                    },
+                    "texture": {
+                        "type": "image",
+                        "imageList": []
+                    },
+                    "instructions": {
+                        "start": [
+                            {
+                                "target": "lu-1",
+                                "action": "geometric",
+                                "persist": "1",
+                                "forwardLogic": "wait",
+                                "backwardLogic": "beCancelled",
+                                "param": {
+                                    "type": "scale",
+                                    "duration": "0",
+                                    "speed": "1.0",
+                                    "repeatCount": "1",
+                                    "repeatMode": "none",
+                                    "timingMode": "none",
+                                    "scaleType": "to",
+                                    "scaleScalar": "5.0",
+                                    "delay": "0.1"
+                                }
+                            },
+                            {
+                                "target": "lu-1",
+                                "action": "animation",
+                                "persist": "1",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "beCancelled",
+                                "param": {
+                                    "type": "vertex",
+                                    "duration": "0",
+                                    "speed": "1.0",
+                                    "repeatCount": "0",
+                                    "repeatMode": "none"
+                                }
+                            },
+                            {
+                                "target": "lu-1",
+                                "action": "sound",
+                                "persist": "1",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "beCancelled",
+                                "param": {
+                                    "resPath": "res\/audio\/music.mp3",
+                                    "repeatCount": "1000"
+                                }
+                            }
+                        ],
+                        "click": [
+                            {
+                                "target": "shadow",
+                                "action": "geometric",
+                                "persist": "0",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "notBeCancelled",
+                                "param": {
+                                    "type": "scale",
+                                    "duration": "0.1",
+                                    "delay": "0.1",
+                                    "speed": "1.0",
+                                    "repeatCount": "1",
+                                    "repeatMode": "none",
+                                    "timingMode": "none",
+                                    "scaleType": "to",
+                                    "scaleScalar": "3"
+                                }
+                            },
+                            {
+                                "target": "gift",
+                                "action": "geometric",
+                                "persist": "0",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "notBeCancelled",
+                                "param": {
+                                    "type": "scale",
+                                    "duration": "0.1",
+                                    "delay": "0.1",
+                                    "speed": "1.0",
+                                    "repeatCount": "1",
+                                    "repeatMode": "none",
+                                    "timingMode": "none",
+                                    "scaleType": "to",
+                                    "scaleScalar": "3"
+                                }
+                            },
+                            {
+                                "target": "gift",
+                                "action": "animation",
+                                "persist": "1",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "beCancelled",
+                                "param": {
+                                    "type": "vertex",
+                                    "duration": "0",
+                                    "speed": "1.0",
+                                    "repeatCount": "0",
+                                    "repeatMode": "none"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "lu-2",
+                    "type": "dynamic",
+                    "position": "550,700,0",
+                    "scale": "0.0001,0.0001,0.0001",
+                    "rotation": "0,180,180",
+                    "visiable": "1",
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res\/models\/deer\/lushang.DAE"
+                    },
+                    "texture": {
+                        "type": "image",
+                        "imageList": []
+                    },
+                    "instructions": {
+                        "start": [
+                            {
+                                "target": "lu-2",
+                                "action": "geometric",
+                                "persist": "1",
+                                "forwardLogic": "wait",
+                                "backwardLogic": "beCancelled",
+                                "param": {
+                                    "type": "scale",
+                                    "duration": "0",
+                                    "speed": "1.0",
+                                    "repeatCount": "1",
+                                    "repeatMode": "none",
+                                    "timingMode": "none",
+                                    "scaleType": "to",
+                                    "scaleScalar": "5.0",
+                                    "delay": "0.1"
+                                }
+                            },
+                            {
+                                "target": "lu-2",
+                                "action": "animation",
+                                "persist": "1",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "beCancelled",
+                                "param": {
+                                    "type": "vertex",
+                                    "duration": "0",
+                                    "speed": "1.0",
+                                    "repeatCount": "0",
+                                    "repeatMode": "none"
+                                }
+                            }
+                        ],
+                        "click": [
+                            {
+                                "target": "shadow",
+                                "action": "geometric",
+                                "persist": "0",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "notBeCancelled",
+                                "param": {
+                                    "type": "scale",
+                                    "duration": "0.1",
+                                    "delay": "0.1",
+                                    "speed": "1.0",
+                                    "repeatCount": "1",
+                                    "repeatMode": "none",
+                                    "timingMode": "none",
+                                    "scaleType": "to",
+                                    "scaleScalar": "3"
+                                }
+                            },
+                            {
+                                "target": "gift",
+                                "action": "geometric",
+                                "persist": "0",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "notBeCancelled",
+                                "param": {
+                                    "type": "scale",
+                                    "duration": "0.1",
+                                    "delay": "0.1",
+                                    "speed": "1.0",
+                                    "repeatCount": "1",
+                                    "repeatMode": "none",
+                                    "timingMode": "none",
+                                    "scaleType": "to",
+                                    "scaleScalar": "3"
+                                }
+                            },
+                            {
+                                "target": "gift",
+                                "action": "animation",
+                                "persist": "1",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "beCancelled",
+                                "param": {
+                                    "type": "vertex",
+                                    "duration": "0",
+                                    "speed": "1.0",
+                                    "repeatCount": "0",
+                                    "repeatMode": "none"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

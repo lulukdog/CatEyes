@@ -1,0 +1,3 @@
+在同级目录下建立一个以scnassets为后缀名的文件夹，将3D模型及图片放入到新建的文件夹中，打开terminal，cd到该目录下，运行下面这条命令即可：（示例中新建的文件夹为model.scnassets）
+./copySceneKitAssets model.scnassets -o model-o.scnassets
+如果终端没有报错，并且生成了model-o.scnassets，则代表运行成功。

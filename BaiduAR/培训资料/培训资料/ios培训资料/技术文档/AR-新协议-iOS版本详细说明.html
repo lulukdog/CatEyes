@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="tool" content="leanote-desktop-app">
+<title>AR 新协议 iOS版本详细说明</title>
+<style>
+
+*{font-family:"lucida grande","lucida sans unicode",lucida,helvetica,"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;}
+
+body {
+  margin: 0;
+}
+
+/*公用文字样式*/
+h1{font-size:30px}h2{font-size:24px}h3{font-size:18px}h4{font-size:14px}
+.note-container{
+    width:850px; 
+    margin:auto;
+    padding: 10px 20px;
+    box-shadow: 1px 1px 10px #eee;
+}
+#title {
+  margin: 0;
+}
+table {
+    margin-bottom: 16px;
+    border-collapse: collapse;
+}
+table th, table td {
+    padding: 6px 13px;
+    border: 1px solid #ddd;
+}
+table th {
+    font-weight: bold;
+}
+
+table tr {
+    background-color: none;
+    border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+    background-color: rgb(247, 247, 249);
+}
+.mce-item-table, .mce-item-table td, .mce-item-table th, .mce-item-table caption {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  padding: 6px 13px;
+}
+blockquote {
+  border-left-width:10px;
+  background-color:rgba(128,128,128,0.05);
+  border-top-right-radius:5px;
+  border-bottom-right-radius:5px;
+  padding:15px 20px;
+  border-left:5px solid rgba(128,128,128,0.075);
+}
+blockquote p {
+  margin-bottom:1.1em;
+  font-size:1em;
+  line-height:1.45
+}
+blockquote ul:last-child,blockquote ol:last-child {
+  margin-bottom:0
+}
+pre {
+  padding: 18px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-radius: 3px;
+  display: block;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  white-space: nowrap;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+.footnote {
+  vertical-align: top;
+  position: relative;
+  top: -0.5em;
+  font-size: .8em;
+}
+
+hr {
+  margin:2em 0
+}
+img {
+  max-width:100%
+}
+pre {
+  word-break:break-word
+}
+p,pre,pre.prettyprint,blockquote {
+  margin:0 0 1.1em
+}
+hr {
+  margin:2em 0
+}
+img {
+  max-width:100%
+}
+.sequence-diagram,.flow-chart {
+  text-align:center;
+  margin-bottom:1.1em
+}
+.sequence-diagram text,.flow-chart text {
+  font-size:15px !important;
+  font-family:"Source Sans Pro",sans-serif !important
+}
+.sequence-diagram [fill="#ffffff"],.flow-chart [fill="#ffffff"] {
+  fill:#f6f6f6
+}
+.sequence-diagram [stroke="#000000"],.flow-chart [stroke="#000000"] {
+  stroke:#3f3f3f
+}
+.sequence-diagram text[stroke="#000000"],.flow-chart text[stroke="#000000"] {
+  stroke:none
+}
+.sequence-diagram [fill="#000"],.flow-chart [fill="#000"],.sequence-diagram [fill="#000000"],.flow-chart [fill="#000000"],.sequence-diagram [fill="black"],.flow-chart [fill="black"] {
+  fill:#3f3f3f
+}
+ul,ol {
+  margin-bottom:1.1em
+}
+ul ul,ol ul,ul ol,ol ol {
+  margin-bottom:1.1em
+}
+kbd {
+  padding:.1em .6em;
+  border:1px solid rgba(63,63,63,0.25);
+  -webkit-box-shadow:0 1px 0 rgba(63,63,63,0.25);
+  box-shadow:0 1px 0 rgba(63,63,63,0.25);
+  font-size:.7em;
+  font-family:sans-serif;
+  background-color:#fff;
+  color:#333;
+  border-radius:3px;
+  display:inline-block;
+  margin:0 .1em;
+  white-space:nowrap
+}
+.toc ul {
+  list-style-type:none;
+  margin-bottom:15px
+}
+</style>
+<!-- 该css供自定义样式 -->
+<link href="../leanote-html.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="note-container">
+		<h1 class="title" id="leanote-title">AR 新协议 iOS版本详细说明</h1>
+		<div class="content-html" id="leanote-content"><h2>协议格式框架</h2><p>&nbsp;<br></p><pre id="leanote_ace_1459221903836_0" class="ace-tomorrow brush:php" draggable="false" data-mce-style="line-height: 1.5; font-size: 14px; height: 168px;">{
+﻿&nbsp;&nbsp;&nbsp;&nbsp;"target":&nbsp;{...},
+﻿&nbsp;&nbsp;&nbsp;&nbsp;"featureImage":{...},
+﻿&nbsp;&nbsp;&nbsp;&nbsp;"sceneList":[
+﻿&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{..scene1...},
+﻿&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{..scene2...}
+﻿&nbsp;&nbsp;&nbsp;&nbsp;]
+}</pre><p>&nbsp;<br></p><h2>target示例</h2><pre id="leanote_ace_1459222037516_0" class="brush:php ace-tomorrow" draggable="false" data-mce-style="line-height: 1.5; font-size: 14px; height: 273px;">"target":{
+&nbsp;&nbsp;&nbsp;&nbsp;"model":"res/target/model",
+&nbsp;&nbsp;&nbsp;&nbsp;"hint":"对准100元人民币背面\n温馨提醒：注意调整距离，请扫描全图",
+&nbsp;&nbsp;&nbsp;&nbsp;"originImage":{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sizeWidth":"1024",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sizeHeight":"491"
+&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;"defaultTransform":&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"position":&nbsp;"-170,-260,-787",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"scale":&nbsp;"0.53,0.53,0.53",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"rotation":&nbsp;"-170,0,90",
+&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;"backgroundMusic":{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource":"/res/sounds/bgm.mp3"
+&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;"cameraZFar":"3000",
+&nbsp;&nbsp;&nbsp;&nbsp;"cameraZNear":"1"
+}</pre><p>&nbsp;<br></p><h2>featureImage 示例</h2><pre id="leanote_ace_1459222194030_0" class="brush:php ace-tomorrow" data-mce-style="line-height: 1.5; font-size: 14px; height: 147px;">&nbsp;"featureImage":{
+&nbsp;&nbsp;&nbsp;&nbsp;"sizeWidth":"640",
+&nbsp;&nbsp;&nbsp;&nbsp;"sizeHeight":"480",
+&nbsp;&nbsp;&nbsp;&nbsp;"resource":"res/target/image_target.png",
+&nbsp;&nbsp;&nbsp;&nbsp;"targetWidth":"552",
+&nbsp;&nbsp;&nbsp;&nbsp;"targetHeight":"272"
+}</pre><p>&nbsp;<br></p><h2>Scene 结构</h2><pre id="leanote_ace_1459222245707_0" class="brush:php ace-tomorrow" data-mce-style="line-height: 1.5; font-size: 14px; height: 168px;">{
+&nbsp;&nbsp;&nbsp;&nbsp;"name":"BARTrackBaseScene",
+&nbsp;&nbsp;&nbsp;&nbsp;"showImmediately":"0/1",
+&nbsp;&nbsp;&nbsp;&nbsp;"lightList":[&nbsp;...&nbsp;],
+&nbsp;&nbsp;&nbsp;&nbsp;"distanceFar":&nbsp;"1300",
+&nbsp;&nbsp;&nbsp;&nbsp;"distanceNear":&nbsp;"800",
+&nbsp;&nbsp;&nbsp;&nbsp;"objList":&nbsp;[&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{...obj1...},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{...obj2...}
+&nbsp;&nbsp;&nbsp;&nbsp;]
+}</pre><p>&nbsp;<br></p><h3>lightList示例</h3><p>&nbsp;<br></p><p>&nbsp;<br></p><h3>obj示例 (通用参数)</h3><pre id="leanote_ace_1459222409018_0" class="brush:php ace-tomorrow" draggable="false" data-mce-style="line-height: 1.5; font-size: 14px; height: 483px;">{&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;"comment":"1",
+&nbsp;&nbsp;&nbsp;&nbsp;"id":"obj1",
+&nbsp;&nbsp;&nbsp;&nbsp;"type":"dynamic/skeleton/plane/cube",&nbsp;&nbsp;//为保持1.0兼容，保留dynamic关键字，dynamic仅代表顶点动画，顶点动画与骨骼动画model层参数有差异
+&nbsp;&nbsp;&nbsp;&nbsp;"position":"0,0,0",
+&nbsp;&nbsp;&nbsp;&nbsp;"scale":"1,1,1",
+&nbsp;&nbsp;&nbsp;&nbsp;"rotation":"0,0,0",
+&nbsp;&nbsp;&nbsp;&nbsp;"visiable":"0/1",&nbsp;//0＝false，&nbsp;1&nbsp;＝&nbsp;true
+&nbsp;&nbsp;&nbsp;&nbsp;"instructions":{&nbsp;&nbsp;&nbsp;&nbsp;//指令相关详细参数，见后文
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"start":[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"quit":[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"default":[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"click":[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}</pre><p>&nbsp;<br></p><h4>obj－ dynamic类型 示例</h4><pre id="leanote_ace_1459222731834_0" class="brush:php ace-tomorrow" draggable="false" data-mce-style="line-height: 1.5; font-size: 14px; height: 420px;">{&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;"comment":"1",
+&nbsp;&nbsp;&nbsp;&nbsp;"id":"obj1",
+&nbsp;&nbsp;&nbsp;&nbsp;"type":"dynamic",&nbsp;&nbsp;//为保持1.0兼容，保留dynamic关键字，dynamic仅代表顶点动画，顶点动画与骨骼动画model层参数有差异
+&nbsp;&nbsp;&nbsp;&nbsp;"position":"0,0,0",
+&nbsp;&nbsp;&nbsp;&nbsp;"scale":"1,1,1",
+&nbsp;&nbsp;&nbsp;&nbsp;"rotation":"0,0,0",
+&nbsp;&nbsp;&nbsp;&nbsp;"visiable":"0/1",&nbsp;//0＝false，&nbsp;1&nbsp;＝&nbsp;true
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;"dynamicRes":{&nbsp;&nbsp;&nbsp;//dynamic资源信息
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"md2",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource":&nbsp;"res/md2/santa.scnassets/1.dae",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"playSpeed":&nbsp;"1",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"playCount":&nbsp;"1"
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;"instructions":{&nbsp;&nbsp;&nbsp;&nbsp;//指令相关详细参数，见后文
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;....
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}</pre><p>&nbsp;<br></p><h4>obj-skeleton类型 示例</h4><pre id="leanote_ace_1459222895109_0" class="brush:php ace-tomorrow" draggable="false" data-mce-style="line-height: 1.5; font-size: 14px; height: 588px;">{&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;"comment":"1",
+&nbsp;&nbsp;&nbsp;&nbsp;"id":"obj1",
+&nbsp;&nbsp;&nbsp;&nbsp;"type":"dynamic",&nbsp;&nbsp;//为保持1.0兼容，保留dynamic关键字，dynamic仅代表顶点动画，顶点动画与骨骼动画model层参数有差异
+&nbsp;&nbsp;&nbsp;&nbsp;"position":"0,0,0",
+&nbsp;&nbsp;&nbsp;&nbsp;"scale":"1,1,1",
+&nbsp;&nbsp;&nbsp;&nbsp;"rotation":"0,0,0",
+&nbsp;&nbsp;&nbsp;&nbsp;"visiable":"0/1",&nbsp;//0＝false，&nbsp;1&nbsp;＝&nbsp;true
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;"dynamicRes":&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"md5",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource":&nbsp;"res/md2/santa.scnassets/player.dae",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"skeletonAnimations":&nbsp;[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name":"run",//动画名字，也用作key
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource":"res/md2/santa.scnassets/run.dae",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fadeInDuration":"0",//渐入，0-1.0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fadeOutDuration":"0",//渐出，0-1.0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"playSpeed":"1.0",//playSpeed必须，不填写将被解析为0，动画不播放
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"playCount":"1",//0代表无限循环，1代表播放一次，以此类推
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;"instructions":{&nbsp;&nbsp;&nbsp;&nbsp;//指令相关详细参数，见后文
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;....
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}</pre><p>&nbsp;<br></p><h4>obj-plane类型 示例</h4><pre id="leanote_ace_1459222962224_0" class="brush:php ace-tomorrow" draggable="false" data-mce-style="line-height: 1.5; font-size: 14px; height: 420px;">{
+&nbsp;&nbsp;&nbsp;&nbsp;"comment":"1",
+&nbsp;&nbsp;&nbsp;&nbsp;"id":"obj1",
+&nbsp;&nbsp;&nbsp;&nbsp;"type":"plane",
+&nbsp;&nbsp;&nbsp;&nbsp;"position":"250,300,-12",
+&nbsp;&nbsp;&nbsp;&nbsp;"scale":"1,1,1",
+&nbsp;&nbsp;&nbsp;&nbsp;"rotation":"180,0,0",
+&nbsp;&nbsp;&nbsp;&nbsp;"sizeX":"150",
+&nbsp;&nbsp;&nbsp;&nbsp;"sizeY":"150",
+&nbsp;&nbsp;&nbsp;&nbsp;"visiable":"1",
+&nbsp;&nbsp;&nbsp;&nbsp;"texture":&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"image",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"imageList":&nbsp;[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"res/images/pifu1.png"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;"instructions":{&nbsp;&nbsp;&nbsp;&nbsp;//指令相关详细参数，见后文
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;....
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}</pre><p>&nbsp;<br></p><h4>obj-cube类型 示例</h4><pre id="leanote_ace_1459223086144_0" class="brush:php ace-tomorrow" draggable="false" data-mce-style="line-height: 1.5; font-size: 14px; height: 441px;">{
+&nbsp;&nbsp;&nbsp;&nbsp;"comment":&nbsp;"actor",
+&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;"actor",
+&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"cube",
+&nbsp;&nbsp;&nbsp;&nbsp;"position":&nbsp;"400,0,0",
+&nbsp;&nbsp;&nbsp;&nbsp;"scale":&nbsp;"1,1,1",
+&nbsp;&nbsp;&nbsp;&nbsp;"rotation":&nbsp;"0,0,180",
+&nbsp;&nbsp;&nbsp;&nbsp;"sizeX":&nbsp;"150",
+&nbsp;&nbsp;&nbsp;&nbsp;"sizeY":&nbsp;"150",
+&nbsp;&nbsp;&nbsp;&nbsp;"sizeZ":&nbsp;"150",
+&nbsp;&nbsp;&nbsp;&nbsp;"visiable":&nbsp;"1",
+&nbsp;&nbsp;&nbsp;&nbsp;"texture":&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"image",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"imageList":&nbsp;[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"res/images/pifu1.png"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;"instructions":{&nbsp;&nbsp;&nbsp;&nbsp;//指令相关详细参数，见后文
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;....
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}</pre><p>&nbsp;<br></p><h2>指令相关示例</h2><h3>&nbsp;instructions结构</h3><pre id="leanote_ace_1459223326037_0" class="brush:php ace-tomorrow" data-mce-style="line-height: 1.5; font-size: 14px; height: 357px;">"instructions":{
+&nbsp;&nbsp;&nbsp;&nbsp;"start":[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//开场指令
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{...instruction...},
+&nbsp;&nbsp;&nbsp;&nbsp;],
+&nbsp;&nbsp;&nbsp;&nbsp;"quit":[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//离场指令
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{...instruction...},
+&nbsp;&nbsp;&nbsp;&nbsp;],
+&nbsp;&nbsp;&nbsp;&nbsp;"default":[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//默认状态（无可执行指令状态）
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{...instruction...},
+&nbsp;&nbsp;&nbsp;&nbsp;],
+&nbsp;&nbsp;&nbsp;&nbsp;"click":[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//点击触发指令
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{...instruction...},
+&nbsp;&nbsp;&nbsp;&nbsp;],
+&nbsp;&nbsp;&nbsp;&nbsp;"shake":[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//shake触发指令
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{...instruction...},
+&nbsp;&nbsp;&nbsp;&nbsp;]
+}</pre><p>&nbsp;<br></p><h3>instruction结构</h3><pre id="leanote_ace_1459223516143_0" class="brush:php ace-tomorrow" data-mce-style="line-height: 1.5; font-size: 14px; height: 231px;">{
+&nbsp;&nbsp;&nbsp;&nbsp;"target":"obj1",
+&nbsp;&nbsp;&nbsp;&nbsp;"action":"geometric/animation/setProperty/procedure/sound/url/statistic/changeScene/dial",
+&nbsp;&nbsp;&nbsp;&nbsp;"persist":"0/1",&nbsp;//动画，声音播放等持续指令＝1，&nbsp;设置可见性，属性等能立即完成的指令=0
+&nbsp;&nbsp;&nbsp;&nbsp;"isIdle":"0/1",&nbsp;//在default里的指令=1,&nbsp;其他=0
+&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":"wait/performNow/forceCancelAll/forceCancelSame/cancelSame/cancelSelf",
+&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":"beCancelled/notBeCancelled/cancelBackward",
+&nbsp;&nbsp;&nbsp;&nbsp;"param":{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//不同action类型对应param示例见后文
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;"onComplete":&nbsp;[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//其他指令
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;]
+}</pre><p>&nbsp;<br></p><h4>关于forwardLogic和backwardLogic:</h4><p>&nbsp; &nbsp; 当指令之间的执行存在冲突时，彼此间的逻辑由 队列前面的指令的 backwardLogic和队列后面的指令的forwardLogic决定( 表格内容格式为 前指令行为/后指令行为)</p><table class="mce-item-table"><tbody><tr><td><br></td><td>wait</td><td>performNow</td><td>forceCancelAll</td><td>forceCancelSame</td><td>cancelSame</td><td>cancelSelf</td></tr><tr><td>beCacnelled</td><td>继续执行/等待</td><td>继续执行/同时执行</td><td>被取消/执行</td><td>若为同类型则被取消/执行</td><td>若为同类型则被取消/执行</td><td>继续执行/被取消</td></tr><tr><td>notBeCancelled</td><td>继续执行/等待</td><td>继续执行/同时执行</td><td>被取消/执行</td><td>若为同类型则被取消/执行</td><td>继续执行/等待</td><td>继续执行/被取消</td></tr><tr><td>cancelBackward</td><td>继续执行/被取消</td><td>继续执行/被取消</td><td>被取消/执行</td><td>若为同类型则被取消/执行</td><td>继续执行/被取消</td><td>继续执行/被取消</td></tr></tbody></table><h4>&nbsp;<br></h4><h4>Geometric&nbsp;</h4><pre id="leanote_ace_1459236994916_0" class="brush:php ace-tomorrow" draggable="false" data-mce-style="line-height: 1.5; font-size: 14px; height: 2037px;">{&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;"target":&nbsp;"obj1",
+&nbsp;&nbsp;&nbsp;&nbsp;"action":&nbsp;"geometric",
+&nbsp;&nbsp;&nbsp;&nbsp;"persist":&nbsp;"1",
+&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":&nbsp;"wait",
+&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":"beCancelled",
+&nbsp;&nbsp;&nbsp;&nbsp;"param":&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"rotate",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"duration":&nbsp;"2.0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//speed必须，不填写将被解析为0，动画不播放
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"speed":"1.0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//0代表无限循环，1代表播放一次，以此类推
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"repeatCount":&nbsp;"0/1/...",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"repeatMode":"none/reverse/restart",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"timingMode":"none/EaseIn/EaseOut/EaseInEaseOut",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"rotateType":"to/by/around",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//rotate&nbsp;to&nbsp;and&nbsp;by&nbsp;use&nbsp;rotateScalar（in&nbsp;degrees）
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"rotateScalar":"10,10,10",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//rotate&nbsp;around&nbsp;use&nbsp;rotateAxis&nbsp;and&nbsp;rotateDegrees
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"rotateAxis":&nbsp;"0,1,0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"rotateDegrees":"360"
+&nbsp;&nbsp;&nbsp;&nbsp;}
+},
+{
+&nbsp;&nbsp;&nbsp;&nbsp;"target":&nbsp;"obj1",
+&nbsp;&nbsp;&nbsp;&nbsp;"action":&nbsp;"geometric",
+&nbsp;&nbsp;&nbsp;&nbsp;"persist":&nbsp;"1",
+&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":&nbsp;"wait",
+&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":"beCancelled",
+&nbsp;&nbsp;&nbsp;&nbsp;"param":&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"translate",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"duration":&nbsp;"2.0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//speed必须，不填写将被解析为0，动画不播放
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"speed":"1.0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//0代表无限循环，1代表播放一次，以此类推
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"repeatCount":&nbsp;"0/1/...",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"repeatMode":"none/reverse/restart",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"timingMode":"none/EaseIn/EaseOut/EaseInEaseOut",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"translateType":"to/by",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"translateScalar":"10,10,10",
+&nbsp;&nbsp;&nbsp;&nbsp;}
+},
+{
+&nbsp;&nbsp;&nbsp;&nbsp;"target":&nbsp;"obj1",
+&nbsp;&nbsp;&nbsp;&nbsp;"action":&nbsp;"geometric",
+&nbsp;&nbsp;&nbsp;&nbsp;"persist":&nbsp;"1",
+&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":&nbsp;"wait",
+&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":"beCancelled",
+&nbsp;&nbsp;&nbsp;&nbsp;"param":&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"scale",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"duration":&nbsp;"2.0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"delay":&nbsp;"4.0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//speed必须，不填写将被解析为0，动画不播放
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"speed":"1.0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//0代表无限循环，1代表播放一次，以此类推
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"repeatCount":&nbsp;"0/1/...",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"repeatMode":"none/reverse/restart",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"timingMode":"none/EaseIn/EaseOut/EaseInEaseOut",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"scaleType":"to/by",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"scaleScalar":"10",
+&nbsp;&nbsp;&nbsp;&nbsp;}
+},
+&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"target":&nbsp;"obj1",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"action":&nbsp;"animation",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"persist":&nbsp;"1",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":&nbsp;"performNow",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":"beCancelled",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"param":&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//md2/md5
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"vertex/skeleton",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//此duration意思是播放到多少秒就停止，若想播放全部动画，置为0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"duration":&nbsp;"0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"repeatCount":&nbsp;"1",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"speed":"1",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"repeatMode":"none"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;},
+&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;"target":&nbsp;"obj1",
+&nbsp;&nbsp;&nbsp;&nbsp;"action":&nbsp;"animation",
+&nbsp;&nbsp;&nbsp;&nbsp;"persist":&nbsp;"1",
+&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":&nbsp;"wait",
+&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":"beCancelled",
+&nbsp;&nbsp;&nbsp;&nbsp;"param":&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"skeleton",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//移除动画的渐出时间
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fadeOutDuration":"0.15",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//是否移除所有正在播放的骨骼动画
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"removeAll":&nbsp;"0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//需要移除的正在播放的骨骼动画集合
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"removeSet":&nbsp;"run,walk...",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//播放哪个骨骼动画
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"playName":&nbsp;"idle",
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre><p>&nbsp;<br></p><h4>SetProperty指令</h4><pre id="leanote_ace_1459237785398_0" class="brush:php ace-tomorrow" draggable="false" data-mce-style="line-height: 1.5; font-size: 14px; height: 945px;">&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"target":"obj1",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"action":"setProperty",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"persist":"0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":"performNow",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":"notBeCancelled",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"param":{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"property":"scale/position/rotation",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"by/to",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value":"0.1,0.1,0.1",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"upLimit":"1.5,1.5,1.5",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"downLimit":"0.5,0.5,0.5",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"target":"obj1",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"action":"setProperty",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"persist":"0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":"performNow",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":"notBeCancelled",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"param":{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"property":"visiable",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value":"true/false/opposite",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"upLimit":"",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"downLimit":",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"target":"obj1",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"action":"setProperty",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"persist":"0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":"performNow",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":"notBeCancelled",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"param":{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"property":"unclicable",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value":"true/false/opposite",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"upLimit":"",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"downLimit":",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;</pre><p>&nbsp;<br></p><h4>URL跳转指令</h4><pre id="leanote_ace_1459237836891_0" class="brush:php ace-tomorrow" draggable="false" data-mce-style="line-height: 1.5; font-size: 14px; height: 210px;">{
+&nbsp;&nbsp;&nbsp;&nbsp;"target":&nbsp;"scene",
+&nbsp;&nbsp;&nbsp;&nbsp;"action":&nbsp;"url",
+&nbsp;&nbsp;&nbsp;&nbsp;"persist":&nbsp;"0",
+&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":&nbsp;"performNow",
+&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":"beCancelled",
+&nbsp;&nbsp;&nbsp;&nbsp;"param":&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url":&nbsp;"http://www.baidu.com",
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}</pre><p>&nbsp;<br></p><h4>Dial指令</h4><pre id="leanote_ace_1459237850919_0" class="brush:php ace-tomorrow" data-mce-style="line-height: 1.5; font-size: 14px; height: 210px;">{
+&nbsp;&nbsp;&nbsp;&nbsp;"target":&nbsp;"scene",
+&nbsp;&nbsp;&nbsp;&nbsp;"action":&nbsp;"dial",
+&nbsp;&nbsp;&nbsp;&nbsp;"persist":&nbsp;"0",
+&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":&nbsp;"performNow",
+&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":"beCancelled",
+&nbsp;&nbsp;&nbsp;&nbsp;"param":&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url":&nbsp;"123456789",
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}</pre><p>&nbsp;<br></p><h4>Statistic指令</h4><pre id="leanote_ace_1459237876210_0" class="brush:php ace-tomorrow" data-mce-style="line-height: 1.5; font-size: 14px; height: 483px;">{
+&nbsp;&nbsp;&nbsp;&nbsp;"target":"scene",
+&nbsp;&nbsp;&nbsp;&nbsp;"action":"statistic",
+&nbsp;&nbsp;&nbsp;&nbsp;"persist":&nbsp;"0",
+&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":&nbsp;"performNow",
+&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":&nbsp;"notBeCancelled",
+&nbsp;&nbsp;&nbsp;&nbsp;"param":&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"staticItems":{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"obj1":[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"position","scale","rotation"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"obj2":[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"position","scale","rotation"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"obj3":[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"position","scale","rotation"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"obj4":[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"position","scale","rotation"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}</pre><p>&nbsp;<br></p><h4>Sound指令</h4><pre id="leanote_ace_1459237909874_0" class="brush:php ace-tomorrow" draggable="false" data-mce-style="line-height: 1.5; font-size: 14px; height: 231px;">{
+&nbsp;&nbsp;&nbsp;&nbsp;"target":"sound1",
+&nbsp;&nbsp;&nbsp;&nbsp;"action":"sound",
+&nbsp;&nbsp;&nbsp;&nbsp;"persist":"1",
+&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":"wait",
+&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":"beCancelled",
+&nbsp;&nbsp;&nbsp;&nbsp;"param":{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resPath":"res/sounds/6931.wav",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"repeatCount":&nbsp;"0/1/2/..."
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}</pre><p>&nbsp;<br></p><h4>changeScene指令</h4><pre id="leanote_ace_1459237939776_0" class="brush:php ace-tomorrow" draggable="false" data-mce-style="line-height: 1.5; font-size: 14px; height: 210px;">{
+&nbsp;&nbsp;&nbsp;&nbsp;"target":"scene",
+&nbsp;&nbsp;&nbsp;&nbsp;"action":"changeScene",
+&nbsp;&nbsp;&nbsp;&nbsp;"persist":"0",
+&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":"forceCancelAll",
+&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":"notBeCancelled",
+&nbsp;&nbsp;&nbsp;&nbsp;"param":{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sceneOrder":"1"
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}</pre><p>&nbsp;<br></p><h4>animation指令</h4><pre id="leanote_ace_1459237962047_0" class="brush:php ace-tomorrow ace_focus" draggable="false" data-mce-style="line-height: 1.5; font-size: 14px; height: 714px;">{
+&nbsp;&nbsp;&nbsp;&nbsp;"target":&nbsp;"obj1",
+&nbsp;&nbsp;&nbsp;&nbsp;"action":&nbsp;"animation",
+&nbsp;&nbsp;&nbsp;&nbsp;"persist":&nbsp;"1",
+&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":&nbsp;"performNow",
+&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":"beCancelled",
+&nbsp;&nbsp;&nbsp;&nbsp;"param":&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//md2/md5
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"vertex/skeleton",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//此duration意思是播放到多少秒就停止，若想播放全部动画，置为0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"duration":&nbsp;"0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"repeatCount":&nbsp;"1",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"speed":"1",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"repeatMode":"none"
+&nbsp;&nbsp;&nbsp;&nbsp;}
+},
+{
+&nbsp;&nbsp;&nbsp;&nbsp;"target":&nbsp;"obj1",
+&nbsp;&nbsp;&nbsp;&nbsp;"action":&nbsp;"animation",
+&nbsp;&nbsp;&nbsp;&nbsp;"persist":&nbsp;"1",
+&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":&nbsp;"wait",
+&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":"beCancelled",
+&nbsp;&nbsp;&nbsp;&nbsp;"param":&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"skeleton",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//移除动画的渐出时间
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fadeOutDuration":"0.15",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//是否移除所有正在播放的骨骼动画
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"removeAll":&nbsp;"0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//需要移除的正在播放的骨骼动画集合
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"removeSet":&nbsp;"run,walk...",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//播放哪个骨骼动画
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"playName":&nbsp;"idle",
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}</pre><p>&nbsp;<br></p><h4>procedure指令</h4><pre id="leanote_ace_1459238280528_0" class="brush:php ace-tomorrow" data-mce-style="line-height: 1.5; font-size: 14px; height: 210px;">{
+&nbsp;&nbsp;&nbsp;&nbsp;"target":&nbsp;"obj1",
+&nbsp;&nbsp;&nbsp;&nbsp;"action":&nbsp;"procedure",
+&nbsp;&nbsp;&nbsp;&nbsp;"persist":&nbsp;"0",
+&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":&nbsp;"performNow",
+&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":"beCancelled",
+&nbsp;&nbsp;&nbsp;&nbsp;"param":&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;"click"
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}</pre><p>&nbsp;<br></p><h4>&nbsp;视频相关</h4><pre id="leanote_ace_1467597809437_0" class="brush:javascript ace-tomorrow" data-mce-style="line-height: 1.5; font-size: 14px; height: 735px;">obj定义
+{
+&nbsp;&nbsp;&nbsp;&nbsp;"id":&nbsp;"..",
+&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;:&nbsp;"",&nbsp;//同普通obj
+&nbsp;&nbsp;&nbsp;&nbsp;"texture":&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"video",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"videoList":&nbsp;[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"local",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"resource":&nbsp;"....mov"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}
+
+{
+&nbsp;&nbsp;&nbsp;&nbsp;"target"&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;"video",
+&nbsp;&nbsp;&nbsp;&nbsp;"action"&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;"videoControl",
+&nbsp;&nbsp;&nbsp;&nbsp;"persist"&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;"0",
+&nbsp;&nbsp;&nbsp;&nbsp;"forwardLogic":&nbsp;"performNow",
+&nbsp;&nbsp;&nbsp;&nbsp;"backwardLogic":&nbsp;"beCancelled",
+&nbsp;&nbsp;&nbsp;&nbsp;"param":&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":&nbsp;"play/pause/restart/stop",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"config":&nbsp;[
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"videoId"&nbsp;:&nbsp;"0",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"repeatCount":&nbsp;"1"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"videoId"&nbsp;:&nbsp;"1",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"repeatCount":&nbsp;"9999"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}&nbsp;</pre><p>&nbsp;<br></p><p>&nbsp;<br></p><p>&nbsp;<br></p><p>&nbsp;<br></p><p>&nbsp;<br></p></div>
+	</div>
+
+<!-- 该js供其它处理 -->
+<script src="../leanote-html.js"></script>
+</body>
+</html>

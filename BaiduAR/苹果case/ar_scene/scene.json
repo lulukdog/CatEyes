@@ -1,0 +1,371 @@
+{
+    "target": {
+        "model": "res/target/model",
+        "hint": "对准KFC礼盒",
+        "originImage": {
+            "sizeWidth": "1024",
+            "sizeHeight": "1024"
+        },
+        "featureImage": {
+            "resource": "res/target/image_target.png",
+            "position": "512,512,0",
+            "targetWidth": "443",
+            "targetHeight": "443"
+        },
+        "debug": "0"
+    },
+    "sceneList": [
+        {
+            "allowCameraControl": "0",
+            "showImmediately": "0",
+            "distanceFar": "1200",
+            "distanceNear": "300",
+            "staticObjList":[
+                {
+                    "id": "mainFrame",
+                    "type": "plane",
+                    "position": "0.5,0.5,-1500",
+                    "scale": "50,50,50",
+                    "rotation": "0,-360,0",
+                    "sizeX":"19",
+                    "sizeY":"34.5",
+                    "visiable": "1",
+                    "texture": {
+                        "type": "image",
+                        "imageList": [
+                            "\/res\/models\/bg.png"
+                        ]
+                    }
+                }
+            ],
+            "objList": [
+                {
+                    "id": "snow",
+                    "type": "dynamic",
+                    "position": "500,100,0",
+                    "scale": "300,300,300",
+                    "rotation": "0,170,180",
+                    "visiable": "1",
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res\/models\/images\/snow.DAE"
+                    },
+                    "instructions": {
+                        "start": [
+                            {
+                                "target": "snow",
+                                "action": "animation",
+                                "persist": "1",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "beCancelled",
+                                "param": {
+                                    "type": "vertex",
+                                    "duration": "0",
+                                    "speed": "1.0",
+                                    "repeatCount": "0",
+                                    "repeatMode": "none"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "title",
+                    "type": "plane",
+                    "position": "510,0,0",
+                    "scale": "10,10,10",
+                    "rotation": "180,0,0",
+                    "sizeX":"100",
+                    "sizeY":"150",
+                    "visiable": "1",
+                    "texture": {
+                        "type": "image",
+                        "imageList": [
+                            "\/res\/models\/title.png"
+                        ]
+                    }
+                },
+                {
+                    "id": "gift",
+                    "type": "dynamic",
+                    "position": "500,500,0",
+                    "scale": "250,250,250",
+                    "rotation": "15,0,180",
+                    "visiable": "1",
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res\/models\/images\/lihe_start.DAE"
+                    },
+                    "instructions": {
+                        "start": [
+                            {
+                                "target": "gift",
+                                "action": "animation",
+                                "persist": "1",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "beCancelled",
+                                "param": {
+                                    "type": "vertex",
+                                    "duration": "0",
+                                    "speed": "1.0",
+                                    "repeatCount": "0",
+                                    "repeatMode": "none"
+                                }
+                            },
+                            {
+                                "target": "gift",
+                                "action": "sound",
+                                "persist": "1",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "beCancelled",
+                                "param": {
+                                    "resPath": "res\/audio\/kfc_bg_music.mp3",
+                                    "repeatCount": "1000"
+                                }
+                            }
+                        ],
+                        "click": [
+                            {
+                                "target": "title",
+                                "action": "setProperty",
+                                "persist": "0",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "notBeCancelled",
+                                "param": {
+                                    "property":"visiable",
+                                    "value":"false"
+                                }
+                            },
+                            {
+                                "target": "snow",
+                                "action": "setProperty",
+                                "persist": "0",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "notBeCancelled",
+                                "param": {
+                                    "property":"visiable",
+                                    "value":"false"
+                                }
+                            },
+                            {
+                                "target": "gift",
+                                "action": "setProperty",
+                                "persist": "0",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "notBeCancelled",
+                                "param": {
+                                    "property":"visiable",
+                                    "value":"false"
+                                }
+                            },
+                            {
+                                "target": "hand1",
+                                "action": "setProperty",
+                                "persist": "0",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "notBeCancelled",
+                                "param": {
+                                    "property":"visiable",
+                                    "value":"false"
+                                }
+                            },
+                            {
+                                "target": "giftOpen",
+                                "action": "setProperty",
+                                "persist": "0",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "notBeCancelled",
+                                "param": {
+                                    "property":"visiable",
+                                    "value":"true"
+                                }
+                            },
+                            {
+                                "target": "giftOpen",
+                                "action": "animation",
+                                "persist": "1",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "beCancelled",
+                                "param": {
+                                    "type": "vertex",
+                                    "duration": "0",
+                                    "speed": "1.0",
+                                    "repeatCount": "1",
+                                    "repeatMode": "none"
+                                }
+                            },
+                            {
+                                "target": "hand_bg",
+                                "action": "geometric",
+                                "persist": "0",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "notBeCancelled",
+                                "param": {
+                                    "type": "scale",
+                                    "duration": "0.6",
+                                    "delay": "3.0",
+                                    "speed": "1.0",
+                                    "repeatCount": "2",
+                                    "repeatMode": "none",
+                                    "timingMode": "none",
+                                    "scaleType": "to",
+                                    "scaleScalar": "1.3"
+                                }
+                            },
+                            {
+                                "target": "hand_bg",
+                                "action": "geometric",
+                                "persist": "0",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "notBeCancelled",
+                                "param": {
+                                    "type": "scale",
+                                    "duration": "0.6",
+                                    "delay": "3.6",
+                                    "speed": "1.0",
+                                    "repeatCount": "1",
+                                    "repeatMode": "none",
+                                    "timingMode": "none",
+                                    "scaleType": "to",
+                                    "scaleScalar": "1.0"
+                                }
+                            },
+                            {
+                                "target": "hand_click2",
+                                "action": "geometric",
+                                "persist": "0",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "beCancelled",
+                                "param": {
+                                    "type": "scale",
+                                    "duration": "0.6",
+                                    "delay": "3.0",
+                                    "speed": "1.0",
+                                    "repeatCount": "1",
+                                    "repeatMode": "none",
+                                    "timingMode": "none",
+                                    "scaleType": "to",
+                                    "scaleScalar": "1.0"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "hand1",
+                    "type": "plane",
+                    "position": "650,500,-500",
+                    "scale": "1,1,1",
+                    "rotation":"180,0,0",
+                    "sizeX":"120",
+                    "sizeY":"160",
+                    "visiable": "1",
+                    "texture": {
+                        "type": "image",
+                        "imageList": [
+                            "\/res\/models\/hand_click.png"
+                        ]
+                    },
+                    "instructions": {
+                        "start": [
+                            {
+                                "target": "hand1",
+                                "action": "geometric",
+                                "persist": "1",
+                                "forwardLogic": "performNow",
+                                "backwardLogic": "beCancelled",
+                                "param": {
+                                    "type": "scale",
+                                    "duration":"0.5",
+                                    "repeatCount": "0",
+                                    "repeatMode": "reverse",
+                                    "scaleType": "by",
+                                    "scaleScalar": "1.5"
+                                }
+                            }
+                        ]
+                    }
+                },
+
+                {
+                    "id": "giftOpen",
+                    "type": "dynamic",
+                    "position": "500,500,0",
+                    "scale": "250,250,250",
+                    "rotation": "-14,182,180",
+                    "visiable": "0",
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res\/models\/images\/lihe_open.DAE"
+                    }
+                },
+                {
+                    "id": "hand_bg",
+                    "type": "plane",
+                    "position": "495,340,-800",
+                    "scale": "0.0001,0.0001,0.0001",
+                    "rotation":"0,0,90",
+                    "sizeX":"200",
+                    "sizeY":"200",
+                    "visiable": "1",
+                    "texture": {
+                        "type": "image",
+                        "imageList": [
+                            "\/res\/models\/hand_bg.png"
+                        ]
+                    }
+                },
+                {
+                    "id": "hand_click2",
+                    "type": "plane",
+                    "position": "550,390,-800",
+                    "scale": "0.0001,0.0001,0.0001",
+                    "rotation":"5,0,90",
+                    "sizeX":"120",
+                    "sizeY":"120",
+                    "visiable": "1",
+                    "texture": {
+                        "type": "image",
+                        "imageList": [
+                            "\/res\/models\/hand_click2.png"
+                        ]
+                    },
+                    "instructions": {
+                        "click": [
+                            {
+                                "target": "hand_click2",
+                                "action": "geometric",
+                                "persist": "1",
+                                "forwardLogic": "forceCancelSame",
+                                "backwardLogic": "notBeCancelled",
+                                "param": {
+                                    "type": "scale",
+                                    "duration": "0.6",
+                                    "delay": "0",
+                                    "speed": "2.0",
+                                    "repeatCount": "1",
+                                    "repeatMode": "none",
+                                    "timingMode": "none",
+                                    "scaleType": "to",
+                                    "scaleScalar": "1.2"
+                                },
+                                "onComplete":[
+                                    {
+                                        "target": "scene",
+                                        "action": "url",
+                                        "persist": "0",
+                                        "forwardLogic": "performNow",
+                                        "backwardLogic": "notBeCancelled",
+                                        "param": {
+                                            "url": "http:\/\/arcouponbj16.kfc.com.cn?x=0"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

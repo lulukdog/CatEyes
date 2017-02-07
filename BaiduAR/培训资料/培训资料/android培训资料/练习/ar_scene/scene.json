@@ -1,0 +1,649 @@
+{
+    "target": {
+        "model": "res/target/model",
+        "hint": "请对准圣诞树正面\n温馨提示：注意调整距离，请扫描全图",
+        "tooFarHint": "距离太远 请将镜头靠近目标",
+        "tooNearHint": "距离太近 请将镜头远离目标",
+        "notFindHint": "未找到扫描物，请重新对准",
+        "farThreshold": "1400",
+        "nearThreshold": "750",
+        "originImage": {
+            "sizeWidth": "1024",
+            "sizeHeight": "1024"
+        },
+        "featureImage": {
+            "sizeWidth": "1024",
+            "sizeHeight": "1024",
+            "resource": "res/target/image_target.png",
+            "position": "512,512,0",
+            "targetWidth": "456",
+            "targetHeight": "456"
+        }
+    },
+    "sceneList": [
+        {
+            "name": "sceneRoot",
+            "comment": "动态测试",
+            "zNear": "50",
+            "objList": [
+                // 鹿1 （从右向左移动）
+                {
+                    "comment": "鹿1",
+                    "id": "lu1",
+                    "type": "dynamic",
+                    "position": "512,600,0",
+                    "scale": "6,6,6",
+                    "rotation": "1080,630,-180",
+                    "isNeedDownSample": "false",
+                    "visible": "0",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "attribute": {
+                        "sided": "both"
+                    },
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res/model/lu1.md2"
+                    },
+                    "instructions": [
+                        {
+                            "target": "lu1",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "StartInstructSet",
+                            "instructId": "instructIdStart",
+                            "param": [
+                                {
+                                    "target": "lu1",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "repeat",
+                                        "md2AnimName": ""
+                                    }
+                                },
+                                {
+                                    "target": "lu1",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                {
+                                    "target": "lu1",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMusicInstruct",
+                                    "instructId": "anniu_playBgm",
+                                    "param": {
+                                        "playType":"repeat",
+                                        "resPath": "res/model/bg_music.mp3"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "target": "lu1",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "ClickInstructSet",
+                            "instructId": "instructIdStart",
+                            "param": [
+                                {
+                                    "target": "shou",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                {
+                                    "target": "bg",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                {
+                                    "target": "lihe",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "visible"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                //鹿2 （从左向右移动）
+                {
+                    "comment": "鹿2",
+                    "id": "lu2",
+                    "type": "dynamic",
+                    "position": "512,600,0",
+                    "scale": "6,6,6",
+                    "rotation": "1080,630,-180",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "attribute": {
+                        "sided": "both"
+                    },
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res/model/lu2.md2"
+                    },
+                    "instructions": [
+                        {
+                            "target": "lu2",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "StartInstructSet",
+                            "instructId": "instructIdStart",
+                            "param": [
+                                {
+                                    "target": "lu2",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "repeat",
+                                        "md2AnimName": ""
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "target": "lu2",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "ClickInstructSet",
+                            "instructId": "instructIdStart",
+                            "param": [
+                                {
+                                    "target": "shou",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                {
+                                    "target": "bg",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                {
+                                    "target": "lihe",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "visible"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                // 遮罩
+                {
+                    "comment": "遮罩",
+                    "id": "tree",
+                    "type": "static",
+                    "position": "509,1000,0",
+                    "scale": "4.7,4.7,4.7",
+                    "rotation": "180,0,0",
+                    "texture": {},
+                    "attribute": {
+                        "sided": "single",
+                        "transparent": "false"
+                    },
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "staticRes": {
+                        "type": "objser",
+                        "resource": "res/model/tree.objser"
+                    },
+                    "instructions": []
+                },
+                // dialog
+                {
+                    "comment": "提示框",
+                    "id": "dialog",
+                    "type": "plane",
+                    "position": "700,100,-100",
+                    "isNeedDownSample": "false",
+                    "scale": "4,4,4",
+                    "visible": "1",
+                    "rotation": "0,0,0",
+                    "texture": {
+                        "type": "image",
+                        "imageList": [
+                            "res/model/dialog.png"
+                        ]
+                    },
+                    "attribute": {
+                        "transparent": "true"
+                    },
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "1"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "1"
+                        }
+                    ],
+                    "sizeX": "70",
+                    "sizeY": "50",
+                    "instructions": [
+                        {
+                            "target": "dialog",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "StartInstructSet",
+                            "instructId": "instructIdStart",
+                            "param": [
+                                {
+                                    "target": "dialog",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "delay": "5000",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "invisible"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                // 半透明背景
+                {
+                    "comment": "半透明背景",
+                    "id": "bg",
+                    "type": "plane",
+                    "position": "0,0,-500",
+                    "isNeedDownSample": "false",
+                    "scale": "6,6,6",
+                    "rotation": "0,0,0",
+                    "visible": "0",
+                    "texture": {
+                        "type": "image",
+                        "imageList": [
+                            "res/model/bg.png"
+                        ]
+                    },
+                    "attribute": {
+                        "transparent": "true"
+                    },
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "1"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "1"
+                        }
+                    ],
+                    "sizeX": "640",
+                    "sizeY": "1280",
+                    "instructions": []
+                },
+                //手
+                {
+                    "comment": "手",
+                    "id": "shou",
+                    "type": "dynamic",
+                    "position": "550,520,-800",
+                    "scale": "2,2,2",
+                    "rotation": "0,100,180",
+                    "visible": "0",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "attribute": {
+                        "sided": "both"
+                    },
+                    "dynamicRes": {
+                        "type": "md2",
+                        "md2Norm": "singlefile",
+                        "md2NormFrame": "1",
+                        "resource": "res/model/shou.md2"
+                    },
+                    "instructions": [
+                        {
+                            "target": "shou",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "StartInstructSet",
+                            "instructId": "instructIdStart",
+                            "param": [
+                                {
+                                    "target": "shou",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "repeat",
+                                        "md2AnimName": ""
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                // 礼盒
+                {
+                    "comment": "礼盒",
+                    "id": "lihe",
+                    "type": "dynamic",
+                    "position": "530,560,-800",
+                    "scale": "2.9,2.9,2.9",
+                    "rotation": "0,90,180",
+                    "visible": "0",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "attribute": {
+                        "sided": "both"
+                    },
+                    "dynamicRes": {
+                        "type": "md2",
+                        "md2Norm": "singlefile",
+                        "md2NormFrame": "1",
+                        "resource": "res/model/lihe.md2"
+                    },
+                    "instructions": [
+                        {
+                            "target": "lihe",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "StartInstructSet",
+                            "instructId": "instructIdStart",
+                            "param": [
+                                {
+                                    "target": "lihe",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "repeat",
+                                        "md2AnimName": ""
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "target": "lihe",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "ClickInstructSet",
+                            "instructId": "instructIdStart",
+                            "param": [
+                                {
+                                    "target": "scene",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "OpenUrlInstruct",
+                                    "instructId": "instructIdUrl",
+                                    "param": {
+                                        "url": "http://campaign.lancome.com.cn/smartstore"
+                                    }
+                                },
+                                {
+                                    "target": "shou",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "invisible"
+                                    }
+                                },
+                                {
+                                    "target": "lihe",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "invisible"
+                                    }
+                                },
+                                {
+                                    "target": "bg",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "invisible"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

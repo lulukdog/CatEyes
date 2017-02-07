@@ -1,0 +1,2 @@
+"colorHandle" : "if ((gl_FragColor.g>0.85&&gl_FragColor.g>(gl_FragColor.r+gl_FragColor.b)*1.0)||((gl_FragColor.g>0.588&&gl_FragColor.g>gl_FragColor.r*1.2&&gl_FragColor.g>gl_FragColor.b*1.4)) )\n { gl_FragColor.a = 0.0;gl_FragColor.g = 0.0;gl_FragColor.r = 0.0;gl_FragColor.b = 0.0; }else if(gl_FragColor.g>0.2&&gl_FragColor.g>gl_FragColor.r&&gl_FragColor.g>gl_FragColor.b){gl_FragColor.a = 0.5 - gl_FragColor.g; }",
+						

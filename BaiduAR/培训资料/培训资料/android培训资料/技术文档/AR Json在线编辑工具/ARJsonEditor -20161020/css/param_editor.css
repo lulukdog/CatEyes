@@ -1,0 +1,88 @@
+header
+{
+	text-align: center;
+}
+
+header .header-wrapper
+{
+	width: 80%;
+	margin: 0 auto;
+}
+
+.param_form
+{
+	margin: 10px;
+	border: 1px solid #000;
+}
+
+.param_editor_wrapper
+{
+	width:100%;
+	height: 200px;
+}
+
+.param_editor
+{
+	width: 100%;
+	height: 170px;
+	border: 1px solid #3883fa;
+	box-sizing: border-box;
+	overflow-y: auto;
+}
+
+div.parent_warpper
+{
+	border:1px solid #000;
+	width: 98%;
+	margin: 1px auto;
+}
+
+
+div.list_warpper
+{
+	border:1px solid #000;
+	width: 98%;
+	margin: 1px auto;
+}
+
+div.listitem_warpper
+{
+	border:1px solid #000;
+	width: 98%;
+	margin: 1px auto;
+}
+
+button.menu_btn
+{
+	color: #ffffff;
+	background-color: #3883fa;
+	border: none;
+}
+
+.file {
+    position: relative;
+    display: inline-block;
+    background: #3883fa;
+    border: 1px solid #99D3F5;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #ffffff;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}

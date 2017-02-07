@@ -1,0 +1,1601 @@
+{
+    "target": {
+        "model": "res/target/model",
+        "hint": "请对准KFC礼物图\n温馨提示：注意调整距离，请扫描全图",
+        "originImage": {
+            "sizeWidth": "1024",
+            "sizeHeight": "1024"
+        },
+        "featureImage": {
+            "sizeWidth": "1024",
+            "sizeHeight": "1024",
+            "resource": "res/target/image_target.png",
+            "position": "512,512,0",
+            "targetWidth": "454",
+            "targetHeight": "454"
+        }
+    },
+    "sceneList": [
+        {
+            "name": "sceneRoot",
+            "comment": "动态测试",
+            "zNear": "50",
+            "zFar":"150",
+            "cameraList":[
+                {
+                    "cameraId":"01",
+                    "cameraType":"camera_2d_ui"
+                },
+                {
+                    "cameraId":"02",
+                    "cameraType":"camera_target_fix"
+                }
+            ],
+            "objList":[
+                // 外框 
+                {
+                    "id": "MainFrame",
+                    "comment": "MainFrame",
+                    "type": "plane",
+                    "cameraId":"01",
+                    "rotation":"0,180,180",
+                    "position": "500,100,10",
+                    "isNeedDownSample":"false",
+                    "attribute": {
+                        "sided": "single",
+                        "transparent": "true"
+                    },
+                    "planePosition": {
+                        "widthAndHeight":"9,16",
+                        "percent":"100",
+                        "marginRight":"0",
+                        "marginLeft":"0",
+                        "marginTop":"0",
+                        "marginBottom":"0"
+                    },
+                    "texture": {
+                        "type": "image",
+                        "imageList": [
+                            "res/model/bg.png"
+                        ]
+                    }
+                },
+
+                //雪花
+                {
+                    "comment": "snow",
+                    "id": "snow",
+                    "type": "dynamic",
+                    "position": "500,100,0",
+                    "scale": "600,600,600",
+                    "cameraId":"02",
+                    "rotation": "0,90,180",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "attribute": {
+                        "sided": "both",
+                        "transparent":"true"
+                    },
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res/model/xuehua.md2"
+                    },
+                    "instructions": [
+                        {
+                            "target": "snow",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "StartInstructSet",
+                            "instructId": "instructIdStart",
+                            "param": [
+                                {
+                                    "target": "snow",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "repeat",
+                                        "md2AnimName": ""
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                //标题
+                {
+                    "id": "title",
+                    "comment": "title",
+                    "type": "plane",
+                    "cameraId":"02",
+                    "position": "500,100,-200",
+                    "scale": "10,10,10",
+                    "rotation":"0,0,0",
+                    "sizeX": "100",
+                    "sizeY": "150",
+                    "isNeedDownSample" : "false",
+                    "attribute":{
+                        "transparent":"true"
+                    },
+                    "texture": {
+                        "type": "image",
+                        "imageList": [
+                            "res/model/get_gift.png"
+                        ]
+                    }
+                },
+                //礼包
+                {
+                    "comment": "gift",
+                    "id": "gift",
+                    "cameraId":"02",
+                    "type": "dynamic",
+                    "position": "550,800,0",
+                    "scale": "250,250,250",
+                    "rotation": "10,90,180",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res/model/lihe_start.md2"
+                    },
+                    "instructions": [
+                        {
+                            "target": "gift",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "StartInstructSet",
+                            "instructId": "instructIdStart",
+                            "param": [
+                                {
+                                    "target": "gift",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "single",
+                                        "md2AnimName": ""
+                                    }
+                                },
+                                {
+                                    "target": "gift",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMusicInstruct",
+                                    "instructId": "bgMusic",
+                                    "param": {
+                                        "repeatCount":"10",
+                                        "resPath": "res/model/kfc_bg_music.mp3"
+                                    }
+                                },
+                                {
+                                    "target": "hand1",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "delay":"500",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "visible"
+                                    }
+                                }
+                            ]
+                        },
+                        // 点击礼包触发动画
+                        {
+                            "target": "gift",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "ClickInstructSet",
+                            "instructId": "instructClickId",
+                            "param": [
+                                // 隐藏之前显示的礼包，标题，雪花，小手动画
+                                {
+                                    "target": "gift",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "invisible"
+                                    }
+                                },
+                                {
+                                    "target": "title",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "invisible"
+                                    }
+                                },
+                                {
+                                    "target": "snow",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "invisible"
+                                    }
+                                },
+                                {
+                                    "target": "hand1",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "invisible"
+                                    }
+                                },
+                                // 显示礼包打开动画，以及后续的小东西出来的动画
+                                {
+                                    "target": "giftOpen",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                {
+                                    "target": "giftOpen",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "single",
+                                        "md2AnimName": ""
+                                    }
+                                },
+                                // 蹦出动画
+                                {
+                                    "target": "kfc_1",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                {
+                                    "target": "kfc_1",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "single",
+                                        "md2AnimName": ""
+                                    }
+                                },
+                                {
+                                    "target": "kfc_1",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "delay":"2000",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "invisible"
+                                    }
+                                },
+                                {
+                                    "target": "kfc_f1",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "delay":"2000",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",                    
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                // 蹦出动画
+                                {
+                                    "target": "kfc_2",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                {
+                                    "target": "kfc_2",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "single",
+                                        "md2AnimName": ""
+                                    }
+                                },
+                                {
+                                    "target": "kfc_2",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "delay":"3100",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "invisible"
+                                    }
+                                },
+                                {
+                                    "target": "kfc_f2",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "delay":"3100",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",                    
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                // 蹦出动画
+                                {
+                                    "target": "kfc_3",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                {
+                                    "target": "kfc_3",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "single",
+                                        "md2AnimName": ""
+                                    }
+                                },
+                                {
+                                    "target": "kfc_3",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "delay":"2000",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "invisible"
+                                    }
+                                },
+                                {
+                                    "target": "kfc_f3",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "delay":"2000",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",                    
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                // 蹦出动画
+                                {
+                                    "target": "bear_1",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                {
+                                    "target": "bear_1",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "single",
+                                        "md2AnimName": ""
+                                    }
+                                },
+                                {
+                                    "target": "bear_1",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "delay":"2000",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "invisible"
+                                    }
+                                },
+                                {
+                                    "target": "bear_f1",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "delay":"2000",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",                    
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                // 蹦出动画
+                                {
+                                    "target": "bear_2",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                {
+                                    "target": "bear_2",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "single",
+                                        "md2AnimName": ""
+                                    }
+                                },
+                                {
+                                    "target": "bear_2",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "delay":"2000",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "invisible"
+                                    }
+                                },
+                                {
+                                    "target": "bear_f2",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "delay":"2000",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",                    
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                // 蹦出动画
+                                {
+                                    "target": "bear_3",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                {
+                                    "target": "bear_3",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "single",
+                                        "md2AnimName": ""
+                                    }
+                                },
+                                {
+                                    "target": "bear_3",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "delay":"3100",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",
+                                        "visibleType": "invisible"
+                                    }
+                                },
+                                {
+                                    "target": "bear_f3",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "delay":"3100",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",                    
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                // 跳转链接的小手动画
+                                {
+                                    "target": "hand_bg",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "delay":"2100",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",                    
+                                        "visibleType": "visible"
+                                    }
+                                },
+                                {
+                                    "target": "hand_bg",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "AnimationInstruct",
+                                    "instructId": "planeAni",
+                                    "delay":"2100",
+                                    "param": {
+                                        "repeatCount":"100",
+                                        "type":"scale",
+                                        "duration":"800",
+                                        "length":"800",
+                                        "start":"0",
+                                        "delay":"0",
+                                        "updateRate":"10",
+                                        "interpolator":{
+                                            "type":"Linear"
+                                        },
+                                        "fromScale":{},
+                                        "toScale":{
+                                            "animDataType":"absolute",
+                                            "absoluteNum":"1.2,1.2,1.2"
+                                        }
+                                    }
+                                },
+                                {
+                                    "target": "hand_click2",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructId": "",
+                                    "delay":"2000",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "ChangePropertyInstruct",
+                                    "param": {
+                                        "type": "change_visible",                    
+                                        "visibleType": "visible"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                //小手
+                {
+                    "comment": "hand1",
+                    "id": "hand1",
+                    "cameraId":"02",
+                    "type": "plane",
+                    "visible":"0",
+                    "position": "600,550,-500",
+                    "scale": "1,1,1",
+                    "sizeX":"150",
+                    "sizeY":"200",
+                    "isNeedDownSample" : "false",
+                    "attribute":{
+                        "transparent":"true"
+                    },
+                    "texture": {
+                        "type": "image",
+                        "imageList": [
+                            "res/model/hand_click.png"
+                        ]
+                    },
+                    "instructions": [
+                        {
+                            "target": "hand1",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "StartInstructSet",
+                            "instructId": "instructIdStart",
+                            "param": [
+                                {
+                                    "target": "hand1",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "AnimationInstruct",
+                                    "instructId": "planeAni",
+                                    "param": {
+                                        "repeatCount":"100",
+                                        "type":"scale",
+                                        "duration":"800",
+                                        "length":"800",
+                                        "start":"0",
+                                        "delay":"0",
+                                        "updateRate":"10",
+                                        "interpolator":{
+                                            "type":"Linear"
+                                        },
+                                        "fromScale":{},
+                                        "toScale":{
+                                            "animDataType":"absolute",
+                                            "absoluteNum":"0.8,0.8,0.8"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+
+                //礼包打开
+                {
+                    "comment": "giftOpen",
+                    "id": "giftOpen",
+                    "cameraId":"02",
+                    "visible":"0",
+                    "type": "dynamic",
+                    "position": "550,800,0",
+                    "scale": "200,200,200",
+                    "rotation": "0,90,180",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res/model/liheopen.md2"
+                    }
+                },
+                //kfc_1
+                {
+                    "comment": "kfc_1",
+                    "id": "kfc_1",
+                    "cameraId":"02",
+                    "type": "dynamic",
+                    "visible":"0",
+                    "position": "550,800,0",
+                    "scale": "200,200,200",
+                    "rotation": "0,90,180",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res/model/kfc_1.md2"
+                    }
+                },
+                //kfc_f1
+                {
+                    "comment": "kfc_f1",
+                    "id": "kfc_f1",
+                    "cameraId":"02",
+                    "type": "dynamic",
+                    "position": "550,800,0",
+                    "scale": "200,200,200",
+                    "rotation": "0,90,180",
+                    "visible": "0",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res/model/kfc_f1.md2"
+                    },
+                    "instructions": [
+                        {
+                            "target": "kfc_f1",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "StartInstructSet",
+                            "instructId": "instructIdStart",
+                            "param": [
+                                {
+                                    "target": "kfc_f1",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "repeat",
+                                        "md2AnimName": ""
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                //kfc_2
+                {
+                    "comment": "kfc_2",
+                    "id": "kfc_2",
+                    "cameraId":"02",
+                    "type": "dynamic",
+                    "visible":"0",
+                    "position": "550,800,0",
+                    "scale": "200,200,200",
+                    "rotation": "0,90,180",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res/model/kfc_2.md2"
+                    }
+                },
+                //kfc_f2
+                {
+                    "comment": "kfc_f2",
+                    "id": "kfc_f2",
+                    "cameraId":"02",
+                    "type": "dynamic",
+                    "position": "550,800,0",
+                    "scale": "200,200,200",
+                    "rotation": "0,90,180",
+                    "visible": "0",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res/model/kfc_f2.md2"
+                    },
+                    "instructions": [
+                        {
+                            "target": "kfc_f2",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "StartInstructSet",
+                            "instructId": "instructIdStart",
+                            "param": [
+                                {
+                                    "target": "kfc_f2",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "repeat",
+                                        "md2AnimName": ""
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                //kfc_3
+                {
+                    "comment": "kfc_3",
+                    "id": "kfc_3",
+                    "cameraId":"02",
+                    "type": "dynamic",
+                    "visible":"0",
+                    "position": "550,800,0",
+                    "scale": "200,200,200",
+                    "rotation": "0,90,180",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res/model/kfc_3.md2"
+                    }
+                },
+                //kfc_f3
+                {
+                    "comment": "kfc_f3",
+                    "id": "kfc_f3",
+                    "cameraId":"02",
+                    "type": "dynamic",
+                    "position": "550,800,0",
+                    "scale": "200,200,200",
+                    "rotation": "0,90,180",
+                    "visible": "0",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res/model/kfc_f3.md2"
+                    },
+                    "instructions": [
+                        {
+                            "target": "kfc_f3",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "StartInstructSet",
+                            "instructId": "instructIdStart",
+                            "param": [
+                                {
+                                    "target": "kfc_f3",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "repeat",
+                                        "md2AnimName": ""
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                //bear_1
+                {
+                    "comment": "bear_1",
+                    "id": "bear_1",
+                    "cameraId":"02",
+                    "type": "dynamic",
+                    "visible":"0",
+                    "position": "550,800,0",
+                    "scale": "200,200,200",
+                    "rotation": "0,90,180",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res/model/bear_1.md2"
+                    }
+                },
+                //bear_f1
+                {
+                    "comment": "bear_f1",
+                    "id": "bear_f1",
+                    "cameraId":"02",
+                    "type": "dynamic",
+                    "position": "550,800,0",
+                    "scale": "200,200,200",
+                    "rotation": "0,90,180",
+                    "visible": "0",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res/model/bear_f1.md2"
+                    },
+                    "instructions": [
+                        {
+                            "target": "bear_f1",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "StartInstructSet",
+                            "instructId": "instructIdStart",
+                            "param": [
+                                {
+                                    "target": "bear_f1",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "repeat",
+                                        "md2AnimName": ""
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                //bear_2
+                {
+                    "comment": "bear_2",
+                    "id": "bear_2",
+                    "cameraId":"02",
+                    "type": "dynamic",
+                    "visible":"0",
+                    "position": "550,800,0",
+                    "scale": "200,200,200",
+                    "rotation": "0,90,180",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res/model/bear_2.md2"
+                    }
+                },
+                //bear_f2
+                {
+                    "comment": "bear_f2",
+                    "id": "bear_f2",
+                    "cameraId":"02",
+                    "type": "dynamic",
+                    "position": "550,800,0",
+                    "scale": "200,200,200",
+                    "rotation": "0,90,180",
+                    "visible": "0",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res/model/bear_f2.md2"
+                    },
+                    "instructions": [
+                        {
+                            "target": "bear_f2",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "StartInstructSet",
+                            "instructId": "instructIdStart",
+                            "param": [
+                                {
+                                    "target": "bear_f2",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "repeat",
+                                        "md2AnimName": ""
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                //bear_3
+                {
+                    "comment": "bear_3",
+                    "id": "bear_3",
+                    "cameraId":"02",
+                    "type": "dynamic",
+                    "visible":"0",
+                    "position": "550,800,0",
+                    "scale": "200,200,200",
+                    "rotation": "0,90,180",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res/model/bear_3.md2"
+                    }
+                },
+                //bear_f3
+                {
+                    "comment": "bear_f3",
+                    "id": "bear_f3",
+                    "cameraId":"02",
+                    "type": "dynamic",
+                    "position": "550,800,0",
+                    "scale": "200,200,200",
+                    "rotation": "0,90,180",
+                    "visible": "0",
+                    "isNeedDownSample": "false",
+                    "lights": [
+                        {
+                            "type": "directional",
+                            "direction": "1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "-1, 0, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, -1, 0",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, 1",
+                            "power": "0.5"
+                        },
+                        {
+                            "type": "directional",
+                            "direction": "0, 0, -1",
+                            "power": "0.5"
+                        }
+                    ],
+                    "dynamicRes": {
+                        "type": "md2",
+                        "resource": "res/model/bear_f3.md2"
+                    },
+                    "instructions": [
+                        {
+                            "target": "bear_f3",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "StartInstructSet",
+                            "instructId": "instructIdStart",
+                            "param": [
+                                {
+                                    "target": "bear_f3",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "PlayMd2AnimInstruct",
+                                    "instructId": "instructIdPlayMd2-3",
+                                    "param": {
+                                        "playType": "repeat",
+                                        "md2AnimName": ""
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                //跳转链接的圈圈
+                {
+                    "comment": "hand_bg",
+                    "id": "hand_bg",
+                    "cameraId":"02",
+                    "visible":"0",
+                    "type": "plane",
+                    "position": "500,420,-1000",
+                    "rotation":"0,0,0",
+                    "scale": "1,1,1",
+                    "sizeX":"100",
+                    "sizeY":"100",
+                    "isNeedDownSample" : "false",
+                    "attribute":{
+                        "transparent":"true"
+                    },
+                    "texture": {
+                        "type": "image",
+                        "imageList": [
+                            "res/model/hand_bg.png"
+                        ]
+                    }
+                },
+                //跳转链接的小手
+                {
+                    "comment": "hand_click2",
+                    "id": "hand_click2",
+                    "cameraId":"02",
+                    "visible":"0",
+                    "type": "plane",
+                    "rotation":"0,0,0",
+                    "position": "538,450,-1000",
+                    "scale": "0.82,0.82,1",
+                    "sizeX":"100",
+                    "sizeY":"100",
+                    "isNeedDownSample" : "false",
+                    "attribute":{
+                        "transparent":"true"
+                    },
+                    "texture": {
+                        "type": "image",
+                        "imageList": [
+                            "res/model/hand_click2.png"
+                        ]
+                    },
+                    "instructions":[
+                        {
+                            "target": "hand_click2",
+                            "forwardLogic": "WaitForward",
+                            "backwardLogic": "CanBeCancled",
+                            "instructType": "InstructionSet",
+                            "instructCategory": "ClickInstructSet",
+                            "instructId": "instructIdClick",
+                            "param": [
+                                {
+                                    "target": "scene",
+                                    "forwardLogic": "WaitForward",
+                                    "backwardLogic": "CanBeCancled",
+                                    "instructType": "AtomInstruction",
+                                    "instructCategory": "OpenUrlInstruct",
+                                    "instructId": "instructIdUrl",
+                                    "param": {
+                                        "url": "http://arcouponbj16.kfc.com.cn/"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
